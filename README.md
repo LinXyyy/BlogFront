@@ -1,19 +1,56 @@
-# blog
+# 个人博客前端源码
 
-## Project setup
-```
-npm install
-```
+## 配置
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- vue全家桶
 
-### Compiles and minifies for production
-```
-npm run build
-```
+  - vue.js
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+  - vue-router
+
+  - vue-x
+
+  - axios
+
+  - vuex-persist 
+
+    ```
+    vuex数据的持久化保存
+    ```
+
+  - vuetify
+
+    ```
+    vue UI 框架
+    ```
+
+  - qs
+
+    ```
+    前端对象的序列化
+    ```
+
+  - mavon-editor
+
+    ```
+    markdown编辑器
+    ```
+
+  - @kangc/v-md-editor
+
+    ```
+    markdown编辑器
+    ```
+
+  - dayjs
+
+    ```
+    时间戳日期格式的转换
+    ```
+
+## 更新日志
+
+### V 1.0
+
+- 访问界面文章的查看
+- 后台管理界面文章的添加
