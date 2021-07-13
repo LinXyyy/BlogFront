@@ -15,6 +15,9 @@
       <v-btn style="margin: 0 20px;" outlined color="#FF0000" @click="save">保存</v-btn>
     </v-row>
     <mavon-editor v-model="text" style="height: 80vh; width: 75vw; margin: 20px auto"></mavon-editor>
+    <v-snackbar v-model="showSnackbar" :timeout="timeout" top color="#FB7299">
+      {{ tip }}
+    </v-snackbar>
   </div>
 </template>
 
@@ -28,7 +31,10 @@
       title: '',
       summary: '',
       classify: '',
-      text: ''
+      text: '',
+      tip: '',
+      showSnackbar: false,
+      timeout: 800
     }),
     methods: {
       save() {
@@ -36,6 +42,12 @@
         let summary = this.summary
         let classify = this.classify
         let text = this.text
+
+        if (title === '' || summary === '' || classify === '' || text === '') {
+          this.showSnackbar = !this.showSnackbar
+          this.tip = '存在空值,请检查'
+          return
+        }
 
         let article = qs.stringify({
           title,
@@ -49,7 +61,14 @@
           method: 'post',
           data: article
         }).then(res => {
-          console.log(res);
+          if (res.code === 0) {
+            this.showSnackbar = !this.showSnackbar
+            this.tip = '发布成功'
+            this.title = ''
+            this.summary = ''
+            this.classify = ''
+            this.text = ''
+          }
         })
       }
     }
