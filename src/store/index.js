@@ -10,11 +10,15 @@ const vuexLocal = new VuexPersistence({
 
 export default new Vuex.Store({
   state: {
-    articleId: ''
+    articleId: '',
+    articles: ''
   },
   mutations: {
     setArticleId(state, id) {
       state.articleId = id
+    },
+    setArticles(state, articles) {
+      state.articles = articles
     }
   },
   actions: {

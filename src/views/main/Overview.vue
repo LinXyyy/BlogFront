@@ -3,7 +3,7 @@
     <v-spacer></v-spacer>
     <profile/>
     <v-col>
-      <div v-for="article in articles" style="margin-bottom: 40px;">
+      <div v-for="article in $store.state.articles" style="margin-bottom: 40px;">
         <article-card :article="article"></article-card>
       </div>
     </v-col>
@@ -19,16 +19,16 @@ import network from "@/network/network";
 export default {
   name: "Overview",
   components: {ArticleCard, Profile},
-  data: () => ({
+  /*data: () => ({
     articles: ''
-  }),
+  }),*/
   methods: {
     getArticles() {
       network({
         url: '/articles',
         method: 'get'
       }).then(res => {
-        this.articles = res.data
+        this.$store.commit("setArticles", res.data)
       })
     }
   },

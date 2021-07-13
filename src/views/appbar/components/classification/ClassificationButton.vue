@@ -9,7 +9,8 @@
 
     <v-list>
       <v-list-item v-for="(item, index) in classifications" :key="index">
-        <v-list-item-title>{{ item }}</v-list-item-title>
+<!--        <v-list-item-title @click="">{{ item }}</v-list-item-title>-->
+        <v-btn text color="#FB7299" style="margin: auto" @click="getArticlesByClassification(item)">{{ item }}</v-btn>
       </v-list-item>
     </v-list>
   </v-menu>
@@ -30,6 +31,17 @@
           method: 'get'
         }).then(res => {
           this.classifications = res.data
+        })
+      },
+      getArticlesByClassification(item) {
+        network({
+          url: '/getArticlesByClassification',
+          method: 'get',
+          params: {
+            classification: item
+          }
+        }).then(res => {
+          this.$store.commit('setArticles', res.data)
         })
       }
     },

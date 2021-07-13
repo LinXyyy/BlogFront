@@ -8,7 +8,7 @@
         首页
       </v-btn>
 
-<!--      <classification-button/>-->
+      <classification-button/>
 
       <v-btn text color="#FFFFFF" @click="toBackGround" style="margin: auto 10px; padding: 0;">
         <v-icon>mdi-account-lock</v-icon>
@@ -18,7 +18,7 @@
 
     <v-spacer/>
 
-<!--    <search-button/>-->
+    <search-button/>
   </v-app-bar>
 </template>
 
