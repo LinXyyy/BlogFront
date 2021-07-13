@@ -69,6 +69,10 @@
             this.classify = ''
             this.text = ''
           }
+          else {
+            this.showSnackbar = !this.showSnackbar
+            this.tip = '发布失败'
+          }
         })
       }
     }
