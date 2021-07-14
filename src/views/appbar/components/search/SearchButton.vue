@@ -32,6 +32,9 @@
           }
         }).then(res => {
           this.$store.commit('setArticles', res.data)
+          if (this.$route.path !== '/') {
+            this.$router.push('/')
+          }
         })
       }
     }

@@ -25,6 +25,7 @@
 <script>
   import ClassificationButton from "@/views/appbar/components/classification/ClassificationButton";
   import SearchButton from "@/views/appbar/components/search/SearchButton";
+  import network from "@/network/network";
   export default {
     name: "AppBar",
     components: {SearchButton, ClassificationButton},
@@ -36,7 +37,15 @@
         this.$router.push('/validate')
       },
       toMain() {
-        this.$router.push('/')
+        if (this.$route.path !== '/') {
+          this.$router.push('/')
+        }
+        network({
+          url: '/articles',
+          method: 'get'
+        }).then(res => {
+          this.$store.commit("setArticles", res.data)
+        })
       }
     }
   }
