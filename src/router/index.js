@@ -6,6 +6,8 @@ import Background from "@/views/background/Background";
 import Overview from "@/views/main/Overview";
 import TextPage from "@/views/text/TextPage";
 import Create from "@/views/background/components/Create";
+import Manage from "@/views/background/components/Manage";
+// import UpdateArticle from "@/views/background/components/UpdateArticle";
 
 Vue.use(VueRouter)
 
@@ -39,14 +41,22 @@ const routes = [
       {
         path: '/write',
         component: Create
-      }
+      },
+      {
+        path: '/manage',
+        component: Manage
+      }/*,
+      {
+        path: '/update',
+        component: UpdateArticle
+      }*/
     ]
   }
 ]
 
 const router = new VueRouter({
   routes,
-  mode: 'hash'
+  mode: 'history'
 })
 
 export default router

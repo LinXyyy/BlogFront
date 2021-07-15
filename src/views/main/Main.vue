@@ -39,7 +39,9 @@
           url: '/articles',
           method: 'get'
         }).then(res => {
-          this.articles = res.data.articles
+          // this.articles = res.data.articles
+          this.$store.commit('setArticles', res.data)
+
         })
       },
       setBackgroundImage() {

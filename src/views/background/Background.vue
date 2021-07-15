@@ -4,9 +4,19 @@
       <v-app-bar-title style="margin: 0 150px; color: #FFFFFF">Curtain</v-app-bar-title>
 
       <div style="margin: 10px 0; padding: 0;">
+        <v-btn text color="#FFFFFF" style="margin: auto 10px; padding: 0;" @click="toMain()">
+          <v-icon>mdi-home</v-icon>
+          首页
+        </v-btn>
+
         <v-btn text color="#FFFFFF" style="margin: auto 10px; padding: 0;" to="/write">
           <v-icon>mdi-pencil-outline</v-icon>
           新建
+        </v-btn>
+
+        <v-btn text color="#FFFFFF" style="margin: auto 10px; padding: 0;" @click="toManage" to="/manage">
+          <v-icon>mdi-border-all</v-icon>
+          管理
         </v-btn>
       </div>
     </v-app-bar>
@@ -32,7 +42,7 @@
           url: '/articles',
           method: 'get'
         }).then(res => {
-          this.articles = res.data.articles
+          this.articles = res.data
         })
       },
       setBackgroundImage() {
@@ -42,6 +52,17 @@
       },
       clearBackgroundImage() {
         document.body.style.backgroundImage = ''
+      },
+      toMain() {
+        this.$router.push('/')
+      },
+      toManage() {
+        network({
+          url: '/articles',
+          method: 'get'
+        }).then(res => {
+          this.$store.commit('setArticles', res.data)
+        })
       }
     },
     mounted() {

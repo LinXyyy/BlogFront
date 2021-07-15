@@ -35,13 +35,12 @@
           data: user
         }).then(res => {
           if (res == 0) {
-            this.$router.push('/write')
+            this.$router.push('/manage')
           } else {
             this.account = ''
             this.password = ''
           }
         })
-
       }
     }
   }

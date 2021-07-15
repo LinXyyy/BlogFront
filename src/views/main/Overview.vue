@@ -2,7 +2,7 @@
   <v-row style="margin-top: 0; padding: 0;">
     <v-spacer></v-spacer>
     <profile/>
-    <v-col v-if="$store.state.articles != null">
+    <v-col v-if="$store.state.articles !== ''">
       <div v-for="article in $store.state.articles" style="margin-bottom: 40px;">
         <article-card :article="article"></article-card>
       </div>
@@ -22,10 +22,27 @@
 <script>
 import ArticleCard from "@/views/article/ArticleCard";
 import Profile from "@/views/main/profile/Profile";
+import network from "@/network/network";
 
 export default {
   name: "Overview",
-  components: {ArticleCard, Profile}
+  components: {ArticleCard, Profile},
+/*  data: () => ({
+    articles: ''
+  }),
+  methods: {
+    getArticles() {
+      network({
+        url: '/articles',
+        method: 'get'
+      }).then(res => {
+        this.articles = res.data
+      })
+    }
+  },
+  created() {
+    this.getArticles()
+  }*/
 }
 </script>
 
