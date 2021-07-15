@@ -7,7 +7,7 @@ import Overview from "@/views/main/Overview";
 import TextPage from "@/views/text/TextPage";
 import Create from "@/views/background/components/Create";
 import Manage from "@/views/background/components/Manage";
-// import UpdateArticle from "@/views/background/components/UpdateArticle";
+import UpdateArticle from "@/views/background/components/UpdateArticle";
 
 Vue.use(VueRouter)
 
@@ -45,11 +45,11 @@ const routes = [
       {
         path: '/manage',
         component: Manage
-      }/*,
+      },
       {
         path: '/update',
         component: UpdateArticle
-      }*/
+      }
     ]
   }
 ]

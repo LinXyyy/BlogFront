@@ -22,7 +22,7 @@
       <div v-if="$route.path === '/manage'">
         <v-row>
           <v-spacer/>
-<!--          <v-btn text outlined color="#0380E9" style="margin: 30px 0;" @click="updateArticle(article.id)">修改</v-btn>-->
+          <v-btn text outlined color="#0380E9" style="margin: 30px 0;" @click="updateArticle(article.id)">修改</v-btn>
           <v-btn text outlined color="#FF0000" style="margin: 30px;" @click="deleteById(article.id)">删除</v-btn>
         </v-row>
       </div>
@@ -81,10 +81,10 @@
           }
         })
       },
-      // updateArticle(id) {
-      //   this.$store.commit('setArticleId', id)
-      //   this.$router.push('/update')
-      // }
+      updateArticle(id) {
+        this.$store.commit('setArticleId', id)
+        this.$router.push('/update')
+      }
     }
   }
 </script>
